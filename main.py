@@ -2,14 +2,16 @@ import pyautogui
 import pyperclip
 import time 
 import os
+import pandas as pd
 
 pyautogui.PAUSE = 1
 
 #abre o navegador
 os.system("start msedge.exe")
-time.sleep(2)
+time.sleep(5)
 
 #digita o endereço e entra no drive
+pyautogui.hotkey("ctrl", "t")
 pyperclip.copy("https://drive.google.com/drive/folders/149xknr9JvrlEnhNWO49zPcw0PW5icxga?usp=sharing")
 pyautogui.hotkey("ctrl", "v")
 pyautogui.press("enter")
@@ -24,3 +26,9 @@ time.sleep(1)
 pyautogui.click(x=171, y=270)
 time.sleep(1)
 pyautogui.click(x=1097, y=106)
+time.sleep(5)
+
+tabela = pd.read_excel(r"C://Users/berna/Downloads/Vendas - Dez.xlsx")
+print(tabela)
+faturamento = tabela["Valor Final"].sum()
+quantidade = tabela["Quantidade"].sum()

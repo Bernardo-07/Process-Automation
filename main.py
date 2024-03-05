@@ -32,3 +32,10 @@ tabela = pd.read_excel(r"C://Users/berna/Downloads/Vendas - Dez.xlsx")
 print(tabela)
 faturamento = tabela["Valor Final"].sum()
 quantidade = tabela["Quantidade"].sum()
+
+#entra no email
+pyautogui.hotkey("ctrl", "t")
+pyperclip.copy("https://mail.google.com/mail/u/0/#inbox")
+pyautogui.hotkey("ctrl", "v")
+pyautogui.press("enter")
+time.sleep(5)
